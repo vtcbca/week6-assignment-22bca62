@@ -1,0 +1,34 @@
+from csv import *
+
+header = ['SID','SNAME','CITY','CONTACT']
+
+student_record=[
+    [1,'om','vyara',098765431],
+    [2,'sai','Bardoli',1212121212],
+    [3,'ram','Vyara',3232323232],
+    [4,'siya','Surat',4545454545],
+    [5,'krishna','pune',6767676767]
+    ]
+
+stud_list=[]
+for i in range(5):
+    sid=int(input("Enter Student Id :"))
+    sname=input("Enter Student Name :")
+    scity=input("Enter Student City :")
+    scontact=int(input("Enter Student Contact :"))
+    student_lis=[sid,sname,scity,scontact]
+    stud_list.append(student_lis)
+
+student_record.extend(stud_list)
+
+with open('student.csv','w',newline="") as file_create:
+    stud_date = writer(file_create)
+    stud_date.writerow(header)
+    file_date.writerows(student_record)
+
+with open("student.csv",'r') as file_read:
+    read_date = reader(file_read)
+    for i in read_date:
+        print(i)
+
+
